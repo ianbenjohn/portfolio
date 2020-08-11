@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import {AppBar, Toolbar, ListItem, IconButton, ListItemText, Avatar, Divider, List, Typography, Box, ListItemIcon } from '@material-ui/core'
 import {ArrowBack, AssignmentInd, Home, Apps, ContactMail} from '@material-ui/icons'
 import avatar from '../ianAvatar.png'
+import NavMenuSlider from '@material-ui/core/Drawer'
 
 //CSS Styles
 const useStyles = makeStyles(theme=>({
     menuSliderContainer: {
         width: 250,
         background: "#511",
-        height: "30rem"
+        height: "100%"
     },
     avatar: {
         display: 'block',
@@ -43,34 +44,61 @@ const menuItems = [
 ]
 
 
+
+//NAVBAR CODE
+
 const Nav = () => {
+
+    //STATE
+    const [state, setState] = useState({
+        right: false
+    })
+
+    //Toggle Slider
+    const toggleSlider = (slider, open) => () => {
+        setState({...state, [slider]: open})
+    }
+
+    //useStyles to Classes
     const classes = useStyles()
-    return (
-        <>
-        <Box className={classes.menuSliderContainer} component='div'>
+
+    const sideList = slider  => (
+        <Box 
+        className={classes.menuSliderContainer} 
+        component='div'
+        onClick={toggleSlider(slider, false)}>
             <Avatar className={classes.avatar} src={avatar} alt='ian-avatar' />
             <Divider />
             <List>
                 {menuItems.map((lsItem, key) => (
                     <ListItem button>
-                    <ListItemIcon className={classes.listItem}>
-                        {lsItem.listIcon}
+                
+                    <ListItemIcon className={classes.listItem}>{lsItem.listIcon}</ListItemIcon>
 
-                    </ListItemIcon>
-                    <ListItemText primary={lsItem.listText}/>
-                    </ListItem>
-            
+                    <ListItemText className={classes.listItem} primary={lsItem.listText}/>
+                    </ListItem>           
                 ))}
             </List>
-
         </Box>
+    )
+    return (
+        <>
         <Box component='nav'>
-            <AppBar position='static' style={{background: 'purple'}}>
+            <AppBar position='static' style={{background: 'gray'}}>
                 <Toolbar>
-                    <IconButton>
+                    <IconButton onClick={toggleSlider('right', true)}>
                         <ArrowBack style={{color: 'coral'}}/>
                     </IconButton>
                     <Typography varient='h4'>IanBenJohn</Typography>
+                    <NavMenuSlider 
+                    //where nav bar appears from
+                    anchor='right'
+                    open={state.right}
+                    onClose={toggleSlider('right', false)}
+                    >
+                    {sideList('right')}
+
+                    </NavMenuSlider>
                 </Toolbar>
             </AppBar>
         </Box>
