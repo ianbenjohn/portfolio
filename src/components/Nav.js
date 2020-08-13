@@ -31,7 +31,7 @@ const menuItems = [
     },
     {
         listIcon: <AssignmentInd />,
-        listText: 'Resume'
+        listText: 'About Me'
     },
     {
         listIcon: <Apps />,
