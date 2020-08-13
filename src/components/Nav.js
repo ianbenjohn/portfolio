@@ -4,6 +4,7 @@ import {AppBar, Toolbar, ListItem, IconButton, ListItemText, Avatar, Divider, Li
 import {ArrowBack, AssignmentInd, Home, Apps, ContactMail} from '@material-ui/icons'
 import avatar from '../ianAvatar.png'
 import NavMenuSlider from '@material-ui/core/Drawer'
+import { Link } from 'react-router-dom';
 
 //CSS Styles
 const useStyles = makeStyles(theme=>({
@@ -27,11 +28,13 @@ const useStyles = makeStyles(theme=>({
 const menuItems = [
     {
         listIcon: <Home />,
-        listText: 'Home'
+        listText: 'Home',
+        listPath: '/'
     },
     {
         listIcon: <AssignmentInd />,
-        listText: 'About Me'
+        listText: 'About Me',
+        listPath: '/about'
     },
     {
         listIcon: <Apps />,
@@ -71,7 +74,7 @@ const Nav = () => {
             <Divider />
             <List>
                 {menuItems.map((lsItem, key) => (
-                    <ListItem button>
+                    <ListItem button key={key} component={Link} to={lsItem.listPath}>
                 
                     <ListItemIcon className={classes.listItem}>{lsItem.listIcon}</ListItemIcon>
 
