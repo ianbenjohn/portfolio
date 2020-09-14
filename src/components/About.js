@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => ({
             "&:nth-of-type(2n):before": {
                 right: 'auto',
                 left: '-0.625rem',
-                borderColor: "tomato tomato transparent transparent"
+                borderColor: "transparent transparent tomato tomato"
             }
         }
 
@@ -100,7 +100,7 @@ const useStyles = makeStyles(theme => ({
         textTransform: 'uppercase'
     },
     subHeading: {
-        color: 'white',
+        color: 'black',
         padding: '0',
         textTransform: 'uppercase'
     }
@@ -114,24 +114,26 @@ const About = () => {
     <>
         <Nav/>
         <Box component='div' className={classes.mainContainer} >
-            <Typography varient='h3' align='center' className={classes.heading}>
-                ABOUT ME: IAN JOHNSON
-            </Typography>
+            <Typography variant='h4' align='center' className={classes.heading}>ABOUT ME: IAN JOHNSON</Typography>
             <Box component='div' className={classes.timeLine}>
                 <Typography variant='h2' className={`${classes.timeLineYear} ${classes.timeLineItem}`}>1994</Typography>
 
                 <Box component='div' className={classes.timeLineItem}>
-                    <Typography variant='h5' align='center' className={classes.subHeading}>
-                        Birth
-                    </Typography>
-                    <Typography variant='body1' align='center'>
-                        Troutdale
-                    </Typography>
-                    <Typography variant='subtitle1' align='center'>
-                        asdijfandsljvnasdkjvnsakdjvnskdjvn
-                    </Typography>
-
+                    
+                    <Typography variant='h5' align='center' className={classes.subHeading}>Birth</Typography>
+                    <Typography variant='body1' align='center' style={{color: "tomato"}}>Troutdale</Typography>
+                    <Typography variant='subtitle1' align='center' style={{color: "tan"}}>asdijfandsljvnasdkjvnsakdjvnskdjvn</Typography>
                 </Box>
+
+                <Typography variant='h2' className={`${classes.timeLineYear} ${classes.timeLineItem}`}>2000</Typography>
+
+                <Box component='div' className={classes.timeLineItem}>
+                    
+                    <Typography variant='h5' align='center' className={classes.subHeading}>Birth</Typography>
+                    <Typography variant='body1' align='center' style={{color: "tomato"}}>Troutdale</Typography>
+                    <Typography variant='subtitle1' align='center' style={{color: "tan"}}>asdijfandsljvnasdkjvnsakdjvnskdjvn</Typography>
+                </Box>
+
             </Box>
         </Box>
     </>
