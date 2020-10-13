@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Nav from './Nav';
 
 const Portfolio = () => {
     return (
-        <div>
-            Hello
-        </div>
+        <>
+        <Nav />
+        Hello Portfolio big league
+        </>
     )
-}
+};
 
 export default Portfolio
