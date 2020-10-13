@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
         borderBottom: '2px solid cornsilk',
         position: 'relative',
         margin: '1rem 3rem 1rem 1rem',
-        clear:'both',
+        clear: 'both',
         "&:after": {
             content: "''",
             position: "absolute"
