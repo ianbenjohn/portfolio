@@ -43,7 +43,8 @@ const menuItems = [
     },
     {
         listIcon: <ContactMail />,
-        listText: 'Contacts'
+        listText: 'Contacts',
+        listPath: "/contacts"
     },
 ]
 
